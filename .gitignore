@@ -6,10 +6,18 @@ build/
 # Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.env
+*.env
+
+# Virtual environment
+venv/
 
 # Logs
 travel_log.csv
 ml/output.txt
+*.log
 
 # ML Model
 ml/model.pkl
@@ -19,3 +27,6 @@ ml/model.pkl
 *.swo
 .vscode/
 .idea/
+
+# CMake build
+build/

@@ -16,8 +16,9 @@
 
 ## 📸 Screenshots
 
-| OpenGL Simulation Window | 
-| ![Simulation Start](/home/code-vc/AltRouteSim/assets) 
+| OpenGL Simulation Window |
+|--------------------------|
+| ![Simulation Start](assets/OpenGL_Simulation_Window.jpeg) | 
 
 ---
 
@@ -63,29 +64,31 @@ AltRouteSim/
 ---
 
 ## 🚀 How to Run
-- 1. Install Dependencies
+- 1.Install Dependencies
 ```bash 
 sudo apt update
 sudo apt install build-essential cmake libglfw3-dev libglew-dev libglm-dev python3 python3-pip
 ```
-- 2. Build the Project
+- 2.Build the Project
 ```bash 
 mkdir build
 cd build
 cmake ..
 make
 ```
-- 3. Run the Simulation
+- 3.Run the Simulation
 ```bash
 ./AltRouteSim
 ```
--  (Optional) Enable ML-based Delay Prediction
+- (Optional) Enable ML-based Delay Prediction
 ```bash
 cd ml
 pip3 install scikit-learn joblib pandas
 python3 train_model.py  # Generates model.pkl from travel_log.csv
 ```
 The simulator will use this model to predict traffic delay based on time and distance.
+
+---
 
 ## 🔁 Sample Input (data/nodes.csv and data/edges.csv)
 ```bash
@@ -98,31 +101,38 @@ id,x,y
 from,to,weight
 0,1,1.0
 1,2,1.2
-...
+```
 
 ---
 
 ## 📦 .gitignore
 ```bash
-# Binaries
+ #Binaries
 build/
 *.o
 *.out
 
-# Python cache
-__pycache__/
+ #Python cache
 *.pyc
+*.pyo
+*.pyd
+.env
+*.env
 
-# Logs
+ #Virtual environment
+venv/
+
+ #Logs
 travel_log.csv
 ml/output.txt
+*.log
 
-# ML Model
+ #ML Model
 ml/model.pkl
 
-# Editor files
+ #Editor files
 *.swp
 *.swo
-.vscode/
+.vscode/ (if used)
 .idea/
 ```
