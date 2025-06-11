@@ -1,0 +1,21 @@
+# Binaries
+build/
+*.o
+*.out
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+travel_log.csv
+ml/output.txt
+
+# ML Model
+ml/model.pkl
+
+# Editor files
+*.swp
+*.swo
+.vscode/
+.idea/
