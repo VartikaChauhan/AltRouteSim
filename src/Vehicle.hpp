@@ -1,32 +1,22 @@
 #pragma once
 #include <vector>
-#include <chrono>
-#include <string>
+
 
 struct Vehicle {
-    std::vector<int> path;     // Node indices
-    int currentIndex = 0;      // Index of current segment in path
-    float t = 0.0f;            // Interpolation factor between current and next node
-    bool finished = false;     // Flag to indicate journey completion
+    int id;                         // vehicle ID
+    long long from = -1;                  // current from-node ID
+    long long to = -1;                    // current to-node ID
+    float fromX = 0, fromY = 0;     // for rendering edge lines
+    float toX = 0, toY = 0;
+    float x = 0, y = 0;             // interpolated position on edge
+    int predictedClass = 0;         // ML-based class
 
-    // Optional metadata
-    std::chrono::steady_clock::time_point startTime; // For performance logging
-    std::string id = "";       // Unique identifier (if needed)
-    
-    // Constructor (optional)
-    Vehicle(const std::vector<int>& path_, const std::string& id_ = "")
-        : path(path_), id(id_) {
-        startTime = std::chrono::steady_clock::now();
-    }
+    std::vector<long long> path;          // complete path
+    int pathIndex = 0;              // index into path vector
 
-    // Get current node
-    int currentNode() const {
-        return (currentIndex < path.size()) ? path[currentIndex] : -1;
-    }
-
-    // Get next node
-    int nextNode() const {
-        return (currentIndex + 1 < path.size()) ? path[currentIndex + 1] : -1;
-    }
+    bool arrived = false;
+    int entry_tick = 0;
+    int exit_tick = 0;
 };
+
 

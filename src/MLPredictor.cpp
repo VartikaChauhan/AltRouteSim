@@ -1,16 +1,14 @@
-#include <cstdlib>
-#include <cstdio>
+#include "MLPredictor.hpp"
+#include <pybind11/embed.h>
 
-double predictDelay(double dist, int hour) {
-    char cmd[256];
-    snprintf(cmd, sizeof(cmd), "python3 ml/predict.py %.2f %d > ml/output.txt", dist, hour);
-    system(cmd);
+namespace py = pybind11;
 
-    FILE* f = fopen("ml/output.txt", "r");
-    if (!f) return dist * 1.5;  // fallback
-    double delay;
-    fscanf(f, "%lf", &delay);
-    fclose(f);
-    return delay;
+MLPredictor::MLPredictor() {
+    py::module_::import("sys").attr("path").attr("insert")(0, "ml");
 }
 
+int MLPredictor::predict(float f1, float f2) {
+    py::gil_scoped_acquire acquire;
+    py::object mod = py::module_::import("inference_wrapper");
+    return mod.attr("predict_class")(f1, f2).cast<int>();
+}

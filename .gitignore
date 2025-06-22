@@ -1,32 +1,39 @@
-# Binaries
-build/
-*.o
-*.out
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.env
-*.env
-
-# Virtual environment
+# Python virtual environment
 venv/
 
-# Logs
-travel_log.csv
-ml/output.txt
-*.log
+# CMake build directory
+build/
 
-# ML Model
-ml/model.pkl
+# Compiled object files and binaries
+*.o
+*.out
+*.a
+*.so
+*.exe
 
-# Editor files
+# Editor/IDE files
 *.swp
 *.swo
+*.bak
+*.tmp
+*.log
 .vscode/
 .idea/
 
-# CMake build
-build/
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Logs and cache
+log.txt
+log.csv
+cache/
+logs/
+
+# Pybind build artifacts (if any)
+*.cppbuild/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+

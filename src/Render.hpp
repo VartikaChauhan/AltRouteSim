@@ -1,9 +1,17 @@
 #pragma once
-#include "Graph.hpp"
-#include "Simulator.hpp"
+#include <vector>
+#include "Vehicle.hpp"
+#include <GLFW/glfw3.h>
+#include "MLPredictor.hpp"
 
 class Render {
 public:
-    static void drawGraph(Graph* g, Simulator* s);
-    static void drawCircle(float cx, float cy, float r);
+    void init();  // initialize GLFW once
+    void draw(const std::vector<Vehicle>& vehicles);
+    void cleanup();
+    GLFWwindow* getWindow() const { return window; }
+private:
+    bool initialized = false;
+    struct GLFWwindow* window = nullptr;
 };
+

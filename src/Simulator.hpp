@@ -1,15 +1,15 @@
 #pragma once
-#include "Graph.hpp"
-#include "Vehicle.hpp"
-#include <thread>
 #include <vector>
-
+#include <fstream>
+#include "Vehicle.hpp"
+#include "MLPredictor.hpp"
+#include "Render.hpp"
 class Simulator {
 public:
-    Graph* graph;
+    void run();
+private:
     std::vector<Vehicle> vehicles;
-
-    Simulator(Graph* g): graph(g) {}
-    void spawnVehicle(int src, int dst);
-    void simulate();
+    int current_tick = 0;
+    Render renderer;
+    std::ofstream log_file;
 };
