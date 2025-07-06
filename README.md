@@ -4,21 +4,21 @@
 
 ---
 
-## 🎯 Features
+##  Features
 
-- 🚦 Dijkstra-based shortest path routing
-- 🚗 Multi-vehicle movement simulation
-- 🧠 ML-driven traffic class prediction (via pybind11 + sklearn)
-- 📊 Color-coded vehicle rendering (Green = Smooth, Yellow = Moderate, Red = Heavy)
-- 🗺️ Real-time OpenGL map visualization (supports CSV and OSM-based maps)
-- 🧾 Simulation logging to `log.csv` (Vehicle ID, path, ETA, predicted class)
-- 🪟 Vehicle info overlay (ID, ETA) using OpenGL text rendering
-- 🔀 Multithreaded simulation for parallel updates
+-  Dijkstra-based shortest path routing
+-  Multi-vehicle movement simulation
+-  ML-driven traffic class prediction (via pybind11 + sklearn)
+-  Color-coded vehicle rendering (Green = Smooth, Yellow = Moderate, Red = Heavy)
+-  Real-time OpenGL map visualization (supports CSV and OSM-based maps)
+-  Simulation logging to `log.csv` (Vehicle ID, path, ETA, predicted class)
+-  Vehicle info overlay (ID, ETA) using OpenGL text rendering
+-  Multithreaded simulation for parallel updates
 
 ---
 
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```bash
 AltRouteSim/
@@ -76,7 +76,7 @@ AltRouteSim/
 ```
 ---
 
-## 🚀 How to Run
+##  How to Run
 - 1.Install Dependencies
 ```bash 
 sudo apt update
@@ -110,7 +110,7 @@ The window will launch showing:
 
 ---
 
-## 🔁 Sample Input (data/nodes.csv and data/edges.csv)
+### 🔁 Sample Input (data/nodes.csv and data/edges.csv)
 ```bash
 # data/nodes.csv
 id,x,y
@@ -125,7 +125,7 @@ from,to,length
 ...
 ```
 ---
-## 🌐 OSM Support
+### 🌐 OSM Support
 Convert .osm (OpenStreetMap XML) to CSV using:
 ```bash
 cd scripts/
@@ -135,7 +135,7 @@ Outputs nodes.csv and edges.csv in data/ folder
 Compatible with Graph::loadFromCSV() method
 
 ---
-## 📤 Output Logs
+### 📤 Output Logs
 - log.txt — readable route summaries and timestamps
 - log.csv — structured logs:
 ```bash
